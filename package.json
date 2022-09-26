@@ -6,14 +6,4 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jupiter5tar/nod.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jupiter5tar/nod/issues"
-  },
-  "homepage": "https://github.com/Jupiter5tar/nod#readme"
 }
