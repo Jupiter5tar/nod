@@ -1,22 +1,8 @@
-const http = require('http')
-const fs = require('fs')
+const http = require('http');
 
-const hostname = '127.0.0.1'
-const port = 3000;
+const server = http.createServer();
+server.on('request', (request, response) => {
+	console.log('this is an incoming request');
+});
 
-const server = http.createServer((req, res) => {
-
-  res.writeHead(200, {'Content-Type':'text/html'})
-  fs.readFile('pages/index.html', function (error, data) {
-  if (error) {
-      res.writeHead(404)
-      res.write('Error: File Not Found')
-    } else {
-      res.write(data)
-    }
-  })
-})
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
-})
+server.listen(3000);
