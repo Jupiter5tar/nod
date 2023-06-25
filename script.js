@@ -124,7 +124,7 @@ class Effect {
 
     this.context.fillStyle = gradient1;
     this.context.fillText(
-      "HELLO",
+      "Jupiter Star",
       this.width * 0.5,
       this.height * 0.5,
       this.width
