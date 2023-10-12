@@ -12,45 +12,30 @@
 <!-- partial -->
   <script  src="./script.js"></script>
   <br>
-  <div class="video-container">
-    <iframe
-      id="player"
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/79nmqEz8OCA?enablejsapi=1&mute=1"
-      title="DCT introduction video"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-  </div>
+  <div id="ytplayer"></div>
   <script>
-  let player;
-
-// Will be automatically called when https://www.youtube.com/iframe_api is loaded
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player("player", {
-    events: {
-      onReady: onPlayerReady,
-    },
-  });
-}
-
-function onPlayerReady(event) {
-  // Start video play once in view
-  let callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        player.playVideo();
-      } else {
-        player.pauseVideo();
-      }
-    });
-  };
-
-  let observer = new IntersectionObserver(callback, {});
-  let target = document.querySelector(".video-container");
-  observer.observe(target);
-</script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+      player = new YT.Player('ytplayer', {
+          height: '0',
+          width: '0',
+          videoId: '79nmqEz8OCA',
+          playerVars: {
+              'autoplay': 1,
+              'showinfo': 0,
+              'controls': 0,
+              'loop': 1,
+              'list': 'PLB0C8D8F4E658C3BC'
+          }
+      });
+  }
+  </script>
 </body>
 </html>
